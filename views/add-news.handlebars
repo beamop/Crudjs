@@ -1,0 +1,26 @@
+<div class="jumbotron">
+   <div class="container">
+        <h2 class="display-3">Add news</h2>
+    </div>
+</div>
+<div class="container">
+    {{#if errors}}
+    {{#each errors}}
+    <div class="alert alert-danger">{{msg}}</div>
+    {{/each}}
+    {{/if}}
+    <form method="post" action="/add-news">
+        <div class="form-group">
+            <label>Name of the news</label>
+            <input type="text" class="form-control" placeholder="Name" name="name">
+        </div>
+        <div class="form-group">
+            <label>Content of the news</label>
+            <textarea class="form-control" rows="3" placeholder="Content of the news..." name="content"></textarea>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" id="getDate" readonly name="date">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
