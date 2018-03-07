@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-login-system",
+  "name": "crudjs",
   "version": "1.0.0",
-  "description": "simple auth system",
+  "description": "simple crud app with auth system",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
