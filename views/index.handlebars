@@ -1,7 +1,7 @@
 <div class="jumbotron">
    <div class="container">
       <h1 class="display-3">Welcome to Crudjs{{#if user}}, {{user.name}}{{/if}} !</h1>
-      <p><a class="btn btn-primary btn-lg" href="/add-news" role="button">Add news &raquo;</a></p>
+      <p><a class="btn btn-primary btn-lg" href="/add" role="button">Add news &raquo;</a></p>
    </div>
 </div>
 <div class="container">
@@ -19,8 +19,8 @@
    <div class="row">
       {{#each news}}
       <div class="col-md-4">
-         <h2>{{name}}</h2>
-         <p>{{content}}</p>
+         <h2>{{substr "10" name}}</h2>
+         <p>{{substr "15" content}}</p>
          <p><a class="btn btn-secondary" href="/view/{{id}}" role="button">View details &raquo;</a></p>
       </div>
       {{/each}}

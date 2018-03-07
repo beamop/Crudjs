@@ -87,6 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  word-wrap: break-word;
 }
 
 abbr[title],
@@ -412,6 +413,7 @@ h6, .h6 {
   font-size: 4.5rem;
   font-weight: 300;
   line-height: 1.2;
+  word-wrap: break-word;
 }
 
 .display-4 {
@@ -1102,7 +1104,6 @@ pre code {
     -ms-flex: 0 0 33.333333%;
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
-    margin-top: 30px;
   }
   .col-md-5 {
     -webkit-box-flex: 0;

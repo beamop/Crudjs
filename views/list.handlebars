@@ -1,0 +1,41 @@
+<div class="jumbotron">
+   <div class="container">
+		<h2 class="display-3">List</h2>
+	</div>
+</div>
+<div class="container">
+	{{#if success_msg}}
+    <div class="alert alert-success">{{success_msg}}</div>
+    {{/if}}
+
+    {{#if error_msg}}
+    <div class="alert alert-danger">{{error_msg}}</div>
+    {{/if}}
+
+    {{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+    {{/if}}
+	<table class="table">
+		<thead>
+			<tr>
+			  <th scope="col">Name</th>
+			  <th scope="col">Content</th>
+			  <th scope="col">Date</th>
+			  <th scope="col">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each news}}
+			<tr>
+			  <th>{{name}}</th>
+			  <td>{{content}}</td>
+			  <td>{{date}}</td>
+			  <td>
+			  	<a href="/edit/{{id}}" class="btn btn-info">Edit</a>
+			  	<a href="/delete/{{id}}" class="btn btn-danger">Delete</a>
+			  </td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>

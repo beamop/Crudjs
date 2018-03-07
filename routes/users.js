@@ -61,7 +61,6 @@ router.post('/register', function(req, res) {
         });
 
         req.flash('success_msg', 'You are registered and can now login!');
-
         res.redirect('/users/login');
     }
 });
@@ -114,7 +113,6 @@ router.get('/logout', function(req, res) {
     req.logout();
 
     req.flash('success_msg', 'You are logged out!');
-
     res.redirect('/users/login');
 });
 

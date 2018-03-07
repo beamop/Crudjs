@@ -22,7 +22,18 @@ var app = express();
 
 // view engine
 app.set('views', path.join(__dirname, 'views'));
-app.engine(('handlebars'), exphbs({defaultLayout:'layout'}));
+app.engine(('handlebars'), exphbs({
+    defaultLayout:'layout',
+    helpers: {
+        substr: function(length, context, options) {
+            if ( context.length > length ) {
+                return context.substring(0, length) + "...";
+            } else {
+                return context;
+            }
+        }
+    }
+}));
 app.set('view engine', 'handlebars');
 
 // bodyparser middleware
@@ -75,13 +86,13 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', routes);
-app.use('/view', routes);
-app.use('/add-news', routes);
+app.use('/add', routes);
+app.use('/list', routes);
 app.use('/users', users);
 
 // set port
 app.set('port', (process.env.PORT || 3000));
 
 app.listen(app.get('port'), function() {
-    console.log('server started on port ' + app.get('port'));
+    console.log('[info] server started on port ' + app.get('port'));
 });
