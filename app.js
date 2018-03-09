@@ -31,7 +31,8 @@ app.engine(('handlebars'), exphbs({
             } else {
                 return context;
             }
-        }
+        },
+        dateFormat: require('handlebars-dateformat')
     }
 }));
 app.set('view engine', 'handlebars');
