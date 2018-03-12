@@ -105,19 +105,26 @@ router.post('/add', function(req, res) {
 // edit
 router.post('/edit/:id', function(req, res) {
     var id = req.params.id;
-    var name = req.body.name;
-    var content = req.body.content;
 
     // validation
     req.checkBody('name', 'Name of the news is required').notEmpty();
     req.checkBody('content', 'Content of the news is required').notEmpty();
 
-    News.findOneAndUpdate({_id: id}, req.body, {new: true}, function (err, news) {
-        req.flash('success_msg', 'You just edited the news!');
-        res.redirect('/list');
+    var errors = req.validationErrors();
 
-        console.log('[info] edited => ' + req.params.id)
-    });
+    if (errors) {
+        req.flash('error_msg', 'You must add the name and the content of the news!');
+        res.redirect('/list');
+    } else {
+        News.findOneAndUpdate({_id: id}, req.body, {new: true}, function (err, news) {
+            if (err) throw err;
+
+            req.flash('success_msg', 'You just edited the news!');
+            res.redirect('/list');
+
+            console.log('[info] edited => ' + req.params.id)
+        });
+    }
 })
 
 
